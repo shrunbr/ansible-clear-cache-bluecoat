@@ -1,0 +1,11 @@
+[proxies]
+10.PROXY.IP.HERE
+
+[proxies:vars]
+ansible_user=admin
+ansible_password=PASSWORD
+ansible_network_os=junos
+ansible_connection=network_cli
+ansible_become=true
+ansible_become_method=enable
+ansible_become_password=ENABLEPASS

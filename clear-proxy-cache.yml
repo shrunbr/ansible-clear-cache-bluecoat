@@ -1,0 +1,21 @@
+---
+- name: Clear cache on proxy
+  hosts: proxies
+  gather_facts: no
+  connection: local
+  debugger: on_failed
+
+  tasks:
+    - name: enable on proxy
+      cli_command:
+        command: enable
+        prompt:
+          - "Enable Password:"
+        answer:
+          - "PROXYPASS"
+      register: proxy_enable
+
+    - name: clear dns-cache on proxy
+      cli_command:
+        command: clear-cache dns-cache
+      register: clear_cache_reg
